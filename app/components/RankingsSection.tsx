@@ -10,7 +10,7 @@ export default function RankingsSection() {
     <section className="py-14 bg-gradient-to-br from-blue-700 to-blue-900 relative overflow-hidden">
       {/* BG Pattern */}
       <div
-        className="absolute inset-0 opacity-5"
+        className="absolute inset-0 opalocation-5"
         style={{
           backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)",
           backgroundSize: "25px 25px",

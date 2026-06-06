@@ -7,20 +7,20 @@ const goals = ["Engineering", "Management", "Medical", "Commerce", "Arts", "Desi
 
 export default function HeroSection() {
   const [selectedGoal, setSelectedGoal] = useState("");
-  const [selectedCity, setSelectedCity] = useState("");
+  const [selectedlocation, setSelectedlocation] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
 
   return (
     <section className="relative min-h-[500px] bg-gradient-to-br from-blue-700 via-blue-600 to-blue-800 overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opalocation-10">
         <div className="absolute top-10 left-10 w-64 h-64 bg-white rounded-full blur-3xl" />
         <div className="absolute bottom-10 right-10 w-96 h-96 bg-blue-300 rounded-full blur-3xl" />
         <div className="absolute top-1/2 left-1/2 w-48 h-48 bg-white rounded-full blur-2xl" />
       </div>
       {/* Grid Dots Pattern */}
       <div
-        className="absolute inset-0 opacity-5"
+        className="absolute inset-0 opalocation-5"
         style={{
           backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)",
           backgroundSize: "30px 30px",
@@ -64,19 +64,19 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* City Selector */}
+            {/* location Selector */}
             <div className="relative flex-1">
               <label className="block text-xs text-gray-400 font-semibold uppercase tracking-wide mb-1 text-left ml-1">
-                City
+                location
               </label>
               <div className="relative">
                 <MapPin size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
                 <select
-                  value={selectedCity}
-                  onChange={(e) => setSelectedCity(e.target.value)}
+                  value={selectedlocation}
+                  onChange={(e) => setSelectedlocation(e.target.value)}
                   className="w-full appearance-none border-2 border-gray-100 rounded-xl pl-8 pr-8 py-2.5 text-sm text-gray-700 focus:outline-none focus:border-blue-500 bg-gray-50 cursor-pointer"
                 >
-                  <option value="">Select City</option>
+                  <option value="">Select location</option>
                   {cities.map((c) => <option key={c}>{c}</option>)}
                 </select>
                 <ChevronDown size={14} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
