@@ -14,3 +14,15 @@ model User {
   password  String
   createdAt DateTime @default(now())
 }
+model Review {
+  id        String  @id @default(cuid())
+  comment   String
+  rating    Int
+  collegeId String
+  userId    String
+
+  user      User    @relation(fields: [userId], references: [id])
+  college   College @relation(fields: [collegeId], references: [id])
+
+  createdAt DateTime @default(now())
+}

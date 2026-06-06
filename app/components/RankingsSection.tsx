@@ -82,7 +82,7 @@ export default function RankingsSection() {
                   <div className="flex items-center gap-3 mt-1">
                     <span className="flex items-center gap-1 text-blue-300 text-xs">
                       <MapPin size={10} />
-                      {college.city}
+                      {college.location}
                     </span>
                     <span className="flex items-center gap-1 text-blue-300 text-xs">
                       <Star size={10} className="fill-yellow-400 text-yellow-400" />

@@ -6,21 +6,21 @@ export default function RegisterPage() {
   const [form, setForm] = useState({
     name: "",
     email: "",
-    password: "",
+    collegeName: "",
+    review: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(form); // later connect backend
+    console.log(form);
   };
 
   return (
     <div className="min-h-screen bg-blue-950 flex items-center justify-center px-4">
-
       <div className="bg-white rounded-xl shadow-lg p-8 w-full max-w-md">
 
         <h1 className="text-2xl font-bold text-blue-900 mb-6 text-center">
@@ -36,8 +36,8 @@ export default function RegisterPage() {
             placeholder="Full Name"
             value={form.name}
             onChange={handleChange}
+            className="border rounded-lg px-3 py-2"
             required
-            className="border border-blue-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
 
           {/* Email */}
@@ -47,41 +47,40 @@ export default function RegisterPage() {
             placeholder="Email"
             value={form.email}
             onChange={handleChange}
+            className="border rounded-lg px-3 py-2"
             required
-            className="border border-blue-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
 
-          {/* Password */}
+          {/* College Name */}
           <input
-            type="College name"
-            name="College name"
-            placeholder="College name"
-            value={form.College_name}
+            type="text"
+            name="collegeName"
+            placeholder="College Name"
+            value={form.collegeName}
             onChange={handleChange}
+            className="border rounded-lg px-3 py-2"
             required
-            className="border border-blue-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-            <input
-            type="Review"
-            name="Reviewe"
-            placeholder="Write your Review"
-            value={form.Review}
+
+          {/* Review */}
+          <textarea
+            name="review"
+            placeholder="Write your review"
+            value={form.review}
             onChange={handleChange}
+            className="border rounded-lg px-3 py-2"
             required
-            className="border border-blue-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-    
+
           {/* Button */}
           <button
             type="submit"
-            className="bg-blue-900 text-white py-2 rounded-lg font-semibold hover:bg-blue-800 transition"
+            className="bg-blue-900 text-white py-2 rounded-lg font-semibold hover:bg-blue-800"
           >
-            Submit your Review
+            Submit Review
           </button>
+
         </form>
-
-        
-
       </div>
     </div>
   );
