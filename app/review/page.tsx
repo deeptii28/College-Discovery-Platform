@@ -24,7 +24,7 @@ export default function RegisterPage() {
       <div className="bg-white rounded-xl shadow-lg p-8 w-full max-w-md">
 
         <h1 className="text-2xl font-bold text-blue-900 mb-6 text-center">
-          Create Account
+          Submit Your College Review
         </h1>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
@@ -53,31 +53,34 @@ export default function RegisterPage() {
 
           {/* Password */}
           <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={form.password}
+            type="College name"
+            name="College name"
+            placeholder="College name"
+            value={form.College_name}
             onChange={handleChange}
             required
             className="border border-blue-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-
+            <input
+            type="Review"
+            name="Reviewe"
+            placeholder="Write your Review"
+            value={form.Review}
+            onChange={handleChange}
+            required
+            className="border border-blue-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+    
           {/* Button */}
           <button
             type="submit"
             className="bg-blue-900 text-white py-2 rounded-lg font-semibold hover:bg-blue-800 transition"
           >
-            Register
+            Submit your Review
           </button>
         </form>
 
-        {/* Login link */}
-        <p className="text-sm text-gray-600 mt-4 text-center">
-          Already have an account?{" "}
-          <a href="/login" className="text-blue-700 font-semibold hover:underline">
-            Login
-          </a>
-        </p>
+        
 
       </div>
     </div>
