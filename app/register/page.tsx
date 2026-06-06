@@ -8,11 +8,37 @@ export default function RegisterPage() {
     password: "",
   });
 
+  // ✅ THIS WAS MISSING
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    try {
+      const res = await fetch("/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
+
+      const data = await res.json();
+      console.log("Response:", data);
+
+      if (data.success) {
+        alert("User registered successfully 😏");
+      } else {
+        alert("Something went wrong 😢");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Error occurred");
+    }
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-blue-950 px-4">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8">
         
-        {/* Title */}
         <h2 className="text-2xl font-bold text-blue-900 text-center">
           Create Account
         </h2>
@@ -20,10 +46,9 @@ export default function RegisterPage() {
           Join CollegeFinder 🚀
         </p>
 
-        {/* Form */}
-        <form className="space-y-4">
+        {/* ✅ CONNECTED FORM */}
+        <form onSubmit={handleSubmit} className="space-y-4">
 
-          {/* Name */}
           <div>
             <label className="text-sm font-medium text-gray-700">
               Full Name
@@ -37,7 +62,6 @@ export default function RegisterPage() {
             />
           </div>
 
-          {/* Email */}
           <div>
             <label className="text-sm font-medium text-gray-700">
               Email
@@ -51,7 +75,6 @@ export default function RegisterPage() {
             />
           </div>
 
-          {/* Password */}
           <div>
             <label className="text-sm font-medium text-gray-700">
               Password
@@ -65,7 +88,6 @@ export default function RegisterPage() {
             />
           </div>
 
-          {/* Button */}
           <button
             type="submit"
             className="w-full bg-blue-900 text-white py-2.5 rounded-lg font-semibold hover:bg-blue-800 transition"
@@ -74,7 +96,6 @@ export default function RegisterPage() {
           </button>
         </form>
 
-        {/* Footer */}
         <p className="text-sm text-gray-500 text-center mt-6">
           Already have an account?{" "}
           <a href="/login" className="text-blue-600 font-semibold">
