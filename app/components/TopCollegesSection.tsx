@@ -10,19 +10,19 @@ export default function TopCollegesSection() {
   const [activeTab, setActiveTab] = useState("All");
 
   const filtered =
-    activeTab === "All"
-      ? colleges
-      : colleges.filter((c) =>
-          c.courses.some((course) =>
-            activeTab === "Engineering"
-              ? ["B.Tech", "M.Tech"].includes(course)
-              : activeTab === "Management"
-              ? ["MBA", "BBA"].includes(course)
-              : activeTab === "Medical"
-              ? ["MBBS", "MD"].includes(course)
-              : true
-          )
-        );
+  activeTab === "All"
+    ? colleges
+    : colleges.filter((c) =>
+        c.courses.some((course) =>
+          activeTab === "Engineering"
+            ? ["B.Tech", "M.Tech"].includes(course)
+            : activeTab === "Management"
+            ? ["MBA", "BBA"].includes(course)
+            : activeTab === "Medical"
+            ? ["MBBS"].includes(course)
+            : true
+        )
+      );
 
   return (
     <section className="py-14 bg-gray-50">

@@ -10,7 +10,7 @@ export default function RankingsSection() {
     <section className="py-14 bg-gradient-to-br from-blue-700 to-blue-900 relative overflow-hidden">
       {/* BG Pattern */}
       <div
-        className="absolute inset-0 opalocation-5"
+        className="absolute inset-0 opacity-5"
         style={{
           backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)",
           backgroundSize: "25px 25px",
@@ -79,17 +79,7 @@ export default function RankingsSection() {
                   <h4 className="text-white font-bold text-sm group-hover:text-blue-200 transition-colors truncate">
                     {college.name}
                   </h4>
-                  <div className="flex items-center gap-3 mt-1">
-                    <span className="flex items-center gap-1 text-blue-300 text-xs">
-                      <MapPin size={10} />
-                      {college.location}
-                    </span>
-                    <span className="flex items-center gap-1 text-blue-300 text-xs">
-                      <Star size={10} className="fill-yellow-400 text-yellow-400" />
-                      {college.rating}
-                    </span>
-                    <span className="text-blue-300 text-xs">{college.type}</span>
-                  </div>
+                  
                 </div>
 
                 {/* Fees */}

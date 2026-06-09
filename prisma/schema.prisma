@@ -4,7 +4,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL") 
+  url      = env("DATABASE_URL")
 }
 
 model User {
@@ -13,11 +13,24 @@ model User {
   email     String   @unique
   password  String
   createdAt DateTime @default(now())
+
+  reviews   Review[]
 }
+
+model College {
+  id        String   @id @default(uuid())
+  name      String
+  location  String?
+  rating    Float?
+
+  reviews   Review[]
+}
+
 model Review {
   id        String  @id @default(cuid())
   comment   String
   rating    Int
+
   collegeId String
   userId    String
 

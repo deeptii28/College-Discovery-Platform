@@ -1,15 +1,51 @@
-import { College, Exam, Course } from "@/types";
+import { College, Course, Exam } from "@/types";
 
+// ✅ COURSES
+export const courses: Course[] = [
+  {
+    id: "course-1",
+    name: "B.Tech",
+    duration: "4 Years",
+    category: "Engineering",
+    colleges: 6381,
+    avgFees: "₹1.5L/year",
+  },
+  {
+    id: "course-2",
+    name: "M.Tech",
+    duration: "2 Years",
+    category: "Engineering PG",
+    colleges: 3100,
+    avgFees: "₹1.2L/year",
+  },
+  {
+    id: "course-3",
+    name: "MBA",
+    duration: "2 Years",
+    category: "Management",
+    colleges: 8083,
+    avgFees: "₹8L/year",
+  },
+  {
+    id: "course-4",
+    name: "MBBS",
+    duration: "5.5 Years",
+    category: "Medical",
+    colleges: 2559,
+    avgFees: "₹5L/year",
+  },
+];
+
+// ✅ COLLEGES
 export const colleges: College[] = [
   {
-    id: 1,
+    id: "college-1",
     name: "IIT Bombay",
-    location: "Powai, Mumbai",
     location: "Mumbai",
     state: "Maharashtra",
     rating: 4.8,
     reviewCount: 3240,
-    courses: ["B.Tech", "M.Tech", "PhD", "MBA"],
+    courses: ["course-1", "course-2"],
     fees: "₹2.2L/year",
     rank: 1,
     rankSource: "NIRF 2024",
@@ -20,14 +56,13 @@ export const colleges: College[] = [
     approved: ["AICTE", "UGC", "NAAC A++"],
   },
   {
-    id: 2,
+    id: "college-2",
     name: "IIM Ahmedabad",
-    location: "Vastrapur, Ahmedabad",
     location: "Ahmedabad",
     state: "Gujarat",
     rating: 4.9,
     reviewCount: 2180,
-    courses: ["MBA", "Executive MBA", "PhD"],
+    courses: ["course-3"],
     fees: "₹23L/year",
     rank: 1,
     rankSource: "NIRF MBA 2024",
@@ -38,14 +73,13 @@ export const colleges: College[] = [
     approved: ["AICTE", "UGC", "AACSB"],
   },
   {
-    id: 3,
+    id: "college-3",
     name: "AIIMS Delhi",
-    location: "Ansari Nagar, New Delhi",
     location: "Delhi",
     state: "Delhi",
     rating: 4.9,
     reviewCount: 4500,
-    courses: ["MBBS", "MD", "MS", "PhD"],
+    courses: ["course-4"],
     fees: "₹1.6K/year",
     rank: 1,
     rankSource: "NIRF Medical 2024",
@@ -55,114 +89,39 @@ export const colleges: College[] = [
     type: "Government",
     approved: ["MCI", "NMC", "NAAC A++"],
   },
-  {
-    id: 4,
-    name: "Bits Pilani",
-    location: "Vidya Vihar, Pilani",
-    location: "Pilani",
-    state: "Rajasthan",
-    rating: 4.6,
-    reviewCount: 2890,
-    courses: ["B.Tech", "M.Tech", "MBA", "M.Sc"],
-    fees: "₹5.7L/year",
-    rank: 28,
-    rankSource: "NIRF 2024",
-    image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=400&h=250&fit=crop",
-    tags: ["Deemed", "BITS", "Top Private"],
-    established: 1964,
-    type: "Deemed",
-    approved: ["AICTE", "UGC", "NAAC A"],
-  },
-  {
-    id: 5,
-    name: "VIT Vellore",
-    location: "Katpadi, Vellore",
-    location: "Vellore",
-    state: "Tamil Nadu",
-    rating: 4.3,
-    reviewCount: 6720,
-    courses: ["B.Tech", "M.Tech", "MBA", "BCA"],
-    fees: "₹1.98L/year",
-    rank: 11,
-    rankSource: "NIRF 2024",
-    image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&h=250&fit=crop",
-    tags: ["Private", "Top Engineering"],
-    established: 1984,
-    type: "Deemed",
-    approved: ["AICTE", "UGC", "NAAC A++"],
-  },
-  {
-    id: 6,
-    name: "Amity University Noida",
-    location: "Sector 125, Noida",
-    location: "Noida",
-    state: "Uttar Pradesh",
-    rating: 4.1,
-    reviewCount: 8340,
-    courses: ["B.Tech", "MBA", "BBA", "BA", "BCA"],
-    fees: "₹1.75L/year",
-    rank: 52,
-    rankSource: "NIRF 2024",
-    image: "https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?w=400&h=250&fit=crop",
-    tags: ["Private", "Deemed"],
-    established: 2005,
-    type: "Private",
-    approved: ["AICTE", "UGC", "NAAC A+"],
-  },
 ];
 
+// ✅ EXAMS
 export const exams: Exam[] = [
-  { id: 1, name: "JEE Main", fullName: "Joint Entrance Examination Main", date: "Jan & Apr 2026", category: "Engineering", level: "National", applicationDeadline: "Nov 2025" },
-  { id: 2, name: "JEE Advanced", fullName: "Joint Entrance Examination Advanced", date: "May 2026", category: "Engineering", level: "National", applicationDeadline: "Apr 2026" },
-  { id: 3, name: "NEET UG", fullName: "National Eligibility Cum Entrance Test", date: "May 2026", category: "Medical", level: "National", applicationDeadline: "Mar 2026" },
-  { id: 4, name: "CAT", fullName: "Common Admission Test", date: "Nov 2025", category: "Management", level: "National", applicationDeadline: "Sep 2025" },
-  { id: 5, name: "CUET", fullName: "Common University Entrance Test", date: "May 2026", category: "UG Courses", level: "National", applicationDeadline: "Mar 2026" },
-  { id: 6, name: "GATE", fullName: "Graduate Aptitude Test in Engineering", date: "Feb 2026", category: "Engineering PG", level: "National", applicationDeadline: "Sep 2025" },
-  { id: 7, name: "XAT", fullName: "Xavier Aptitude Test", date: "Jan 2026", category: "Management", level: "National", applicationDeadline: "Nov 2025" },
-  { id: 8, name: "CLAT", fullName: "Common Law Admission Test", date: "Dec 2025", category: "Law", level: "National", applicationDeadline: "Oct 2025" },
+  {
+    id: "exam-1",
+    name: "JEE Main",
+    fullName: "Joint Entrance Examination Main",
+    date: "Jan & Apr 2026",
+    category: "Engineering",
+    level: "National",
+    applicationDeadline: "Nov 2025",
+  },
 ];
 
-export const courses: Course[] = [
-  { id: 1, name: "B.Tech", duration: "4 Years", category: "Engineering", colleges: 6381, avgFees: "₹1.5L/year" },
-  { id: 2, name: "MBA/PGDM", duration: "2 Years", category: "Management", colleges: 8083, avgFees: "₹8L/year" },
-  { id: 3, name: "MBBS", duration: "5.5 Years", category: "Medical", colleges: 2559, avgFees: "₹5L/year" },
-  { id: 4, name: "B.Com", duration: "3 Years", category: "Commerce", colleges: 5111, avgFees: "₹30K/year" },
-  { id: 5, name: "BA", duration: "3 Years", category: "Arts", colleges: 5740, avgFees: "₹25K/year" },
-  { id: 6, name: "BCA", duration: "3 Years", category: "Computer Science", colleges: 4200, avgFees: "₹60K/year" },
-  { id: 7, name: "BBA", duration: "3 Years", category: "Management", colleges: 3900, avgFees: "₹70K/year" },
-  { id: 8, name: "M.Tech", duration: "2 Years", category: "Engineering PG", colleges: 3100, avgFees: "₹1.2L/year" },
-];
-
-export const studyGoals = [
-  { label: "Engineering", icon: "⚙️", count: "6,381 Colleges", subCourses: ["BE/B.Tech", "Diploma in Engineering", "ME/M.Tech"] },
-  { label: "Management", icon: "💼", count: "8,083 Colleges", subCourses: ["MBA/PGDM", "BBA/BMS", "Executive MBA"] },
-  { label: "Medical", icon: "🏥", count: "2,559 Colleges", subCourses: ["MBBS", "PG Medical", "BDS"] },
-  { label: "Commerce", icon: "📊", count: "5,111 Colleges", subCourses: ["B.Com", "M.Com", "CA"] },
-  { label: "Arts", icon: "🎨", count: "5,740 Colleges", subCourses: ["BA", "MA", "BFA"] },
-  { label: "Design", icon: "✏️", count: "1,480 Colleges", subCourses: ["B.Des", "M.Des"] },
-  { label: "Law", icon: "⚖️", count: "1,200 Colleges", subCourses: ["LLB", "BA LLB", "LLM"] },
-  { label: "Science", icon: "🔬", count: "4,200 Colleges", subCourses: ["B.Sc", "M.Sc", "PhD"] },
+// ✅ EXTRA DATA
+export const cities = [
+  "Delhi",
+  "Mumbai",
+  "Bangalore",
+  "Pune",
+  "Hyderabad",
 ];
 
 export const rankings = [
   { source: "NIRF", count: 1360 },
-  { source: "Collegedunia", count: 3255 },
-  { source: "India Today", count: 1813 },
-  { source: "Outlook", count: 1393 },
-  { source: "The Week", count: 1119 },
-  { source: "QS World", count: 131 },
 ];
 
-export const cities = [
-  "Delhi", "Mumbai", "Bangalore", "Pune", "Hyderabad",
-  "Chennai", "Kolkata", "Ahmedabad", "Jaipur", "Lucknow"
-];
-
-export const topSearches = [
-  "Best MBA colleges in India",
-  "Best BTech colleges in India",
-  "Top Engineering colleges in Delhi",
-  "MBBS colleges in Bangalore",
-  "Best MBA colleges in Mumbai",
-  "Top Law colleges in India",
+export const studyGoals = [
+  {
+    label: "Engineering",
+    icon: "⚙️",
+    count: "6,381 Colleges",
+    subCourses: ["B.Tech", "M.Tech"],
+  },
 ];
