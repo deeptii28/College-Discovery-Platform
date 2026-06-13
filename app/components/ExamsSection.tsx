@@ -1,72 +1,108 @@
 "use client";
-import { exams } from "@/lib/data";
-import { Calendar, ChevronRight, Clock } from "lucide-react";
 
-const categoryColors: Record<string, string> = {
-  Engineering: "bg-blue-100 text-blue-700",
-  Medical: "bg-red-100 text-red-700",
-  Management: "bg-purple-100 text-purple-700",
-  "UG Courses": "bg-green-100 text-green-700",
-  "Engineering PG": "bg-indigo-100 text-indigo-700",
-  Law: "bg-orange-100 text-orange-700",
-};
+const EXAMS = [
+  { name: "JEE Main", desc: "B.Tech / B.E.", date: "Jan & Apr 2026", deadline: "Nov 2025", stream: "Engineering" },
+  { name: "NEET UG", desc: "MBBS / BDS", date: "May 2026", deadline: "Mar 2026", stream: "Medical" },
+  { name: "CAT", desc: "MBA / PGDM", date: "Nov 2025", deadline: "Sep 2025", stream: "Management" },
+  { name: "CUET", desc: "UG Admissions", date: "May 2026", deadline: "Apr 2026", stream: "General" },
+];
 
 export default function ExamsSection() {
   return (
-    <section className="py-14 bg-white">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex items-center justify-between mb-8">
+    <>
+      <style>{`
+        .exams-section {
+          padding: 80px 48px;
+          border-top: 1px solid var(--border);
+        }
+        .exams-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 16px;
+        }
+        .exam-card {
+          background: var(--card-bg);
+          border: 1px solid var(--border);
+          border-radius: var(--radius);
+          padding: 24px 28px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 16px;
+          transition: all 0.25s;
+        }
+        .exam-card:hover { border-color: rgba(255,140,0,0.3); transform: translateX(4px); }
+        .exam-info { flex: 1; }
+        .exam-name {
+          font-family: 'Sora', sans-serif;
+          font-weight: 700;
+          font-size: 1.1rem;
+          margin-bottom: 4px;
+        }
+        .exam-desc { color: var(--text-muted); font-size: 0.82rem; }
+        .exam-dates { text-align: right; flex-shrink: 0; }
+        .exam-date-label {
+          font-size: 0.72rem;
+          color: var(--text-muted);
+          text-transform: uppercase;
+          letter-spacing: 0.06em;
+          font-weight: 600;
+          margin-bottom: 2px;
+        }
+        .exam-date-value { font-weight: 600; font-size: 0.88rem; color: var(--saffron-light); }
+        .exam-apply-btn {
+          background: var(--saffron);
+          color: var(--navy);
+          border: none;
+          padding: 9px 20px;
+          border-radius: 8px;
+          font-weight: 700;
+          font-size: 0.82rem;
+          cursor: pointer;
+          font-family: 'Inter', sans-serif;
+          white-space: nowrap;
+          transition: all 0.2s;
+          flex-shrink: 0;
+        }
+        .exam-apply-btn:hover { background: var(--saffron-light); }
+
+        @media (max-width: 1024px) {
+          .exams-section { padding: 60px 24px; }
+          .exams-grid { grid-template-columns: 1fr; }
+          .exam-card { flex-wrap: wrap; }
+        }
+      `}</style>
+
+      <section className="exams-section">
+        <p className="section-eyebrow">Upcoming Exams</p>
+        <div className="section-header">
           <div>
-            <h2 className="text-2xl md:text-3xl font-black text-gray-900">Upcoming Entrance Exams</h2>
-            <p className="text-gray-500 mt-1">Stay updated with exam dates and application deadlines</p>
+            <h2 className="section-title">Entrance Exam Calendar</h2>
+            <p className="section-sub" style={{ marginBottom: 0 }}>
+              Stay ahead of deadlines and exam dates
+            </p>
           </div>
-          <a href="#" className="hidden md:flex items-center gap-1 text-blue-600 font-semibold text-sm hover:gap-2 transition-all">
-            View All Exams <ChevronRight size={16} />
-          </a>
+          <button className="view-all">View All Exams →</button>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {exams.map((exam) => (
-            <div
-              key={exam.id}
-              className="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-lg hover:border-blue-200 transition-all duration-300 p-5 group cursor-pointer"
-            >
-              {/* Category Badge */}
-              <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${categoryColors[exam.category] || "bg-gray-100 text-gray-600"}`}>
-                {exam.category}
-              </span>
-
-              {/* Exam Name */}
-              <h3 className="text-lg font-black text-gray-900 mt-3 group-hover:text-blue-700 transition-colors">
-                {exam.name}
-              </h3>
-              <p className="text-xs text-gray-400 mb-4 leading-relaxed">{exam.fullName}</p>
-
-              {/* Dates */}
-              <div className="space-y-2">
-                <div className="flex items-center gap-2 text-xs text-gray-600">
-                  <Calendar size={12} className="text-blue-400" />
-                  <span><span className="font-semibold">Exam Date:</span> {exam.date}</span>
-                </div>
-                <div className="flex items-center gap-2 text-xs text-gray-600">
-                  <Clock size={12} className="text-orange-400" />
-                  <span><span className="font-semibold">Apply By:</span> {exam.applicationDeadline}</span>
-                </div>
+        <div className="exams-grid">
+          {EXAMS.map((e) => (
+            <div className="exam-card" key={e.name}>
+              <div className="exam-info">
+                <div className="exam-name">{e.name}</div>
+                <div className="exam-desc">{e.desc}</div>
               </div>
-
-              {/* CTA */}
-              <div className="flex gap-2 mt-4 pt-4 border-t border-gray-50">
-                <button className="flex-1 bg-blue-50 hover:bg-blue-600 text-blue-600 hover:text-white text-xs font-semibold py-2 rounded-lg transition-all">
-                  Details
-                </button>
-                <button className="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold py-2 rounded-lg transition-all">
-                  Apply Now
-                </button>
+              <div className="exam-dates">
+                <div className="exam-date-label">Exam Date</div>
+                <div className="exam-date-value">{e.date}</div>
+                <div className="exam-date-label" style={{ marginTop: 8 }}>Apply By</div>
+                <div className="exam-date-value">{e.deadline}</div>
               </div>
+              <button className="exam-apply-btn">Apply →</button>
             </div>
           ))}
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
